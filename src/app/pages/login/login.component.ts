@@ -1,13 +1,29 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup } from '@angular/forms';
+import { Form, Validators, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: true,
+  imports: [
+    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,NgIf,
+  ]
 })
 export class LoginComponent implements OnInit {
   public form: FormGroup;
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
 
   constructor() {
     this.form = this.criarForm();
