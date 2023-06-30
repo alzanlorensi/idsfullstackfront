@@ -4,6 +4,9 @@ import { Form, Validators, FormControl, FormGroup, FormsModule, ReactiveFormsMod
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,11 +22,13 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'Você deve inserir um valor';
     }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.email.hasError('email') ? 'Não é um email válido' : '';
   }
 
+
+  animation : any;
 
   constructor() {
     this.form = this.criarForm();
