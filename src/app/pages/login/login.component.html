@@ -64,7 +64,7 @@
 	</svg>
 <form>
     <h3>Projeto Implantação</h3>
-    <mat-form-field>
+    <mat-form-field style="width:325px" >
       <mat-label style="color: purple;"> Digite seu Email</mat-label>
       <input matInput placeholder="exe@exemplo.com" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
