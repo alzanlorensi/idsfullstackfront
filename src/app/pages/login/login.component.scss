@@ -1,12 +1,3 @@
-.example-container mat-form-field + mat-form-field {
-  margin-left: 8px;
-  color: greenyellow;
-  background-color:black;
-
-}
-.example-container mat-label + mat-label{
-  color: #0e4166;
-}
 * {
   padding: 0;
   margin: 0;
@@ -131,6 +122,12 @@ margin-right: 4px;
     margin: 0;
     box-sizing: border-box;
 }
-.email{
-  color: purple;
+.email_login{
+  width: 325px;
+   height: 80px;
 }
+.senha_login mat-form-field + mat-form-field{
+  margin-left: 8px;
+}
+
+

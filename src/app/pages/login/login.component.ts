@@ -1,11 +1,18 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Form, Validators, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-
-
-
+import {
+  Form,
+  Validators,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +20,18 @@ import {MatInputModule} from '@angular/material/input';
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [
-    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,NgIf,
-  ]
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+  ],
 })
 export class LoginComponent implements OnInit {
+  hide = true;
   public form: FormGroup;
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -27,8 +42,7 @@ export class LoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Não é um email válido' : '';
   }
 
-
-  animation : any;
+  animation: any;
 
   constructor() {
     this.form = this.criarForm();
