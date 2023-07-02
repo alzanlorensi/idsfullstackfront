@@ -7,26 +7,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { PipeModule } from 'src/app/pipes/pipe.module';
+import { MaterialModule } from '../module/material.module';
 
 
 
 
 @NgModule({
   declarations: [
+    LoginComponent,
 
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,NgIf,
-    LoginComponent,
-    MatIconModule,
-    MatButtonModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    PipeModule,
+
   ],
   exports:[
     LoginComponent

@@ -42,35 +42,28 @@
       </use>
     </g>
   </svg>
-  <form>
+  <form [formGroup]="form">
     <div>
       <h3>Projeto Implantação</h3>
       <div>
-        <mat-form-field class="email_login">
+        <mat-form-field class="email_login radius" >
           <mat-label style="color: black; font-family: 'Poppins',sans-serif;"> Digite seu Email</mat-label>
-          <input matInput placeholder="exe@exemplo.com" [formControl]="email" required />
-          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          <input matInput placeholder="exe@exemplo.com" formControlName="user_email" required>
+          <mat-error>{{email?.errors | erro: true}}</mat-error>
         </mat-form-field>
       </div>
       <label></label>
 
       <div >
-      <mat-form-field class="email_login">
+      <mat-form-field class="email_login radius">
         <mat-label style="color: black">Insira sua senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" style="color: black"/>
+        <input formControlName="user_password" matInput [type]="hide ? 'password' : 'text'" style="color: black"/>
       </mat-form-field>
+      <div *ngIf="mensagemerro">
+          <mat-error>{{mensagemerro}}</mat-error>
+      </div>
     </div>
-
-      <button mat-raised-button style="color: black; height: 40px; font-family:'Poppins',sans-serif;">Log In</button>
-
-
-      <!--<label for="username">Email</label>
-    <input type="text" placeholder="exe@exemplo.com" id="username">-->
-
-      <!--<label for="password">Senha</label>
-    <input type="password" placeholder="*****" id="password">-->
-
-     <!-- <button class="shape" style="color: black">Log In</button>-->
+      <button (click)="submit()" style="color: black; height: 40px; font-family:'Poppins',sans-serif;">Log In</button>
       <div class="social">
         <p>Powered by @André Zanlorensi</p>
       </div>

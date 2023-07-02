@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   Form,
+  FormBuilder,
   Validators,
   FormControl,
   FormGroup,
@@ -12,48 +13,51 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { LoginService } from './service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgIf,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-  ],
 })
 export class LoginComponent implements OnInit {
-  hide = true;
+  public hide = true;
   public form: FormGroup;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  public animation: any;
+  public mensagemerro: any = null;
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Você deve inserir um valor';
-    }
-    return this.email.hasError('email') ? 'Não é um email válido' : '';
-  }
-
-  animation: any;
-
-  constructor() {
+  constructor(public formBuilder: FormBuilder, public service: LoginService, public router: Router) {
     this.form = this.criarForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.verificar_token(); //se existir token vai limpar
+  }
 
   public criarForm(): FormGroup {
-    return new FormGroup({
-      email: new FormControl(),
-      senha: new FormControl(),
+    return this.formBuilder.group({
+      user_email: [
+        null,
+        Validators.compose([Validators.required, Validators.email]),
+      ],
+      user_password: [null],
     });
+  }
+  public get email() {
+    return this.form.get('user_email');
+  }
+
+  public submit() {
+    this.service.logar(this.form.getRawValue()).subscribe(
+      (response) => {
+        this.mensagemerro = null;
+        this.router.navigateByUrl("admin"); // irá para o componente Admin
+      },
+      (error) => {
+        this.mensagemerro = 'Erro 404 not found' + error;
+      }
+    );
   }
 }

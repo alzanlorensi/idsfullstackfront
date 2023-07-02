@@ -129,5 +129,8 @@ margin-right: 4px;
 .senha_login mat-form-field + mat-form-field{
   margin-left: 8px;
 }
-
+:host ::ng-deep .radius .mat-mdc-text-field-wrapper {
+  width: 100%;
+  border-radius: 20px;
+}
 
