@@ -22,10 +22,9 @@ import { MaterialModule } from '../module/material.module';
     CommonModule,
     FormsModule,
     FlexLayoutModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
     MaterialModule,
+    ReactiveFormsModule,
+
     PipeModule,
 
   ],
