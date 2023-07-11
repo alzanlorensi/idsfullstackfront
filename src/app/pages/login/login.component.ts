@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   public submit() {
-    this.service.logar(this.form.getRawValue()).subscribe(
+    this.service.logar(this.form.getRawValue()).subscribe( //pega o valor do form e manda pro back que seria o subscribe
       (response) => {
         this.mensagemerro = null;
         this.router.navigateByUrl("admin"); // irá para o componente Admin

@@ -19,7 +19,7 @@ export class AdminGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    this._url = state.url; //pega a urlque vem e salva
+    this._url = state.url; //pega a url que vem e salva
 
     //se o token estiver nulo ele vai retornar para minha rota de login
     if (this.loginService.token===null || this.loginService.token===undefined) {

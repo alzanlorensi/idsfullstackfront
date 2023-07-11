@@ -15,22 +15,23 @@ export class LoginService {
 
   constructor(public httpClient: HttpClient, private router: Router) {
     this.api = environment.api + '/login';
-    this.token = localStorage.getItem('token');
+    this.token = localStorage.getItem('token'); //Salva em cache
   }
 
   public logar(usuario_login: UsuarioLogin){
-    const url = this.api+'/auth';
+    const url = this.api+'/auth'; //const são variáveis que não são alteráveis com se fosse as finals
+                                //url primeiro depoiso parâmetro
     return this.httpClient.post(url,usuario_login).pipe(map((response: any) => {
       console.log(response);
       this.token = response.token;
-      localStorage.setItem('token', response.token);
+      localStorage.setItem('token', response.token); //salva em memória
       return response;
     }));
   }
 
-  public logout(){
+  public logout(){ //quando der um F5 não vai logar
     localStorage.removeItem('token');
-    this.router.navigateByUrl('login'); //chama do service
+    this.router.navigateByUrl('login'); //chama do login caso eu de f5
     this.token=null;
   }
 
@@ -40,4 +41,5 @@ export class LoginService {
       this.token = null;
     }
   }
+
 }

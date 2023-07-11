@@ -1,3 +1,4 @@
+import { CadastroComponent } from './../Levantamento/cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { LoginComponent } from './login.component';
@@ -16,6 +17,7 @@ import { MaterialModule } from '../module/material.module';
 @NgModule({
   declarations: [
     LoginComponent,
+    CadastroComponent,
 
   ],
   imports: [
@@ -24,7 +26,6 @@ import { MaterialModule } from '../module/material.module';
     FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
-
     PipeModule,
 
   ],

@@ -12,7 +12,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { MaterialModule } from './pages/module/material.module';
 
 @NgModule({
-  declarations: [AppComponent,AdminComponent],
+  declarations: [AppComponent,AdminComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

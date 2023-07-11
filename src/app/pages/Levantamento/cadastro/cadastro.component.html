@@ -1,0 +1,40 @@
+<form class="" [formGroup]="formCadastro">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Cadastrar novos usuários</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label style="color: black; font-family: 'Poppins', sans-serif">Digite o nome</mat-label>
+        <input matInput type="text" formControlName="nome" required />
+        <mat-error>{{ nome?.errors | erro }}</mat-error>
+      </mat-form-field>
+
+      <label></label>
+      <div>
+        <mat-form-field class="email_login radius" >
+          <mat-label style="color: black; font-family: 'Poppins',sans-serif;"> Digite seu Email</mat-label>
+          <input matInput placeholder="exe@exemplo.com" formControlName="usuarioEmail" required>
+          <mat-error>{{usuarioEmail?.errors | erro: true}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="email_login radius">
+        <mat-label style="color: black">Senha</mat-label>
+        <input
+          formControlName="usuarioSenha"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          style="color: black"
+        />
+      </mat-form-field>
+      <div *ngIf="mensagemerro">
+        <mat-error>{{ mensagemerro }}</mat-error>
+      </div>
+      <div>
+      <button mat-fab extended color="primary" (click)="cadastrarUsuario()">
+        <mat-icon>save</mat-icon>Salvar</button>
+    </div>
+    </mat-card-content>
+  </mat-card>
+</form>

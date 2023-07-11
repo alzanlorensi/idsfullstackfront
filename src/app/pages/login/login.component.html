@@ -59,10 +59,11 @@
         <mat-label style="color: black">Insira sua senha</mat-label>
         <input formControlName="user_password" matInput [type]="hide ? 'password' : 'text'" style="color: black"/>
       </mat-form-field>
-      <div *ngIf="mensagemerro">
+      <div *ngIf="mensagemerro"> <!--Valida caso de erro-->
           <mat-error>{{mensagemerro}}</mat-error>
       </div>
     </div>
+    <!-- Esse click basicamente vai chamar minha funçãodo componente-->
       <button (click)="submit()" style="color: black; height: 40px; font-family:'Poppins',sans-serif; height: 55px;">Log In</button>
       <div class="social">
         <p>Powered by @André Zanlorensi</p>
