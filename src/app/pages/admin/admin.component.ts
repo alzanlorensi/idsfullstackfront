@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {}
 
-  public cadastrar(): void {
-    this.router.navigateByUrl('cadastro');
+  public levantamento(): void {
+    this.router.navigateByUrl('levantamento');
   }
 }

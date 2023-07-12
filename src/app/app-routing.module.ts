@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminGuard } from './services/admin.guard';
 import { CadastroComponent } from './pages/Levantamento/cadastro/cadastro.component';
+import { LevantamentoComponent } from './pages/Levantamento/levantamento.component';
 
 const routes: Routes = [
     {path:'',redirectTo: 'login',pathMatch:'full'}, //redireciona para meu login
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent,
   canActivate: [AdminGuard],
      children: []},
-     {path:'cadastro',component: CadastroComponent}
+     {path:'cadastro',component: CadastroComponent},
+     {path:'levantamento',component:LevantamentoComponent}
 ];
 
 @NgModule({

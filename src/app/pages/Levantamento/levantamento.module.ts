@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LevantamentoComponent } from './levantamento.component';
 import { MaterialModule } from '../module/material.module';
-import { AdminComponent } from './admin.component';
-
-
 
 @NgModule({
-  declarations: [AdminComponent,],
+  declarations: [
+    LevantamentoComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
   ],
-  exports:[AdminComponent,]
+  exports: [
+    LevantamentoComponent
+  ],
 })
-export class AdminModule { }
+export class LevantamentoModule { }

@@ -9,6 +9,41 @@ svg {
   background-color: #0e4166;
   background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
 }
-:host ::ng-deep .mdc-card__actions{
-  background-color: #0e4166;
+
+.seletor{
+  height: 80px;
+  width: 140px;
+  background-color: rgba(255,255,255,0.13);
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 50px 35px;
 }
+
+.titulo{
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.titulo{
+  font-size: 20px;
+  text-align: right;
+  font-family:'Poppins',sans-serif;
+  color: white;
+  text-align: center;
+}
+
+:host ::ng-deep .mat-mdc-card
+{
+ background-color: transparent;
+ box-shadow: none;
+ align-items: center;
+}
+

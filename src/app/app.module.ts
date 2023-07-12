@@ -8,11 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminComponent } from './pages/admin/admin.component';
 import { MaterialModule } from './pages/module/material.module';
+import { AdminModule } from './pages/admin/admin.module';
+import { LevantamentoModule } from './pages/Levantamento/levantamento.module';
 
 @NgModule({
-  declarations: [AppComponent,AdminComponent,],
+  declarations: [AppComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +23,9 @@ import { MaterialModule } from './pages/module/material.module';
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    AdminModule,
+    LevantamentoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
